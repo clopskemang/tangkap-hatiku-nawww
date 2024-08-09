@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch My Heart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .heart {
+            font-size: 50px;
+            color: #ff4081;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #ff4081;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="heart" class="heart">❤️</div>
+        <div id="message" class="message">Tangkap Hatiku!</div>
+    </div>
+
+    <script>
+        const heart = document.getElementById('heart');
+        const message = document.getElementById('message');
+        let caught = false;
+
+        function moveHeart() {
+            if (!caught) {
+                const x = Math.floor(Math.random() * (window.innerWidth - 50));
+                const y = Math.floor(Math.random() * (window.innerHeight - 50));
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+            }
+        }
+
+        heart.addEventListener('click', () => {
+            caught = true;
+            heart.style.fontSize = '100px';
+            message.innerHTML = 'Kamu Berhasil Menangkap Hatiku Naww! ❤️';
+        });
+
+        setInterval(moveHeart, 1000);
+    </script>
+</body>
+</html>
